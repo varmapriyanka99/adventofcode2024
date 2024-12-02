@@ -1,11 +1,11 @@
-package day2.part1;
+package day2.part2;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Part1Solu {
+public class Part2Solu {
 
     public static boolean checkReport(List<Integer> arr) {
         int diff1 = 0;
@@ -26,8 +26,21 @@ public class Part1Solu {
         return val;
     }
 
+    public static boolean dampen(List<Integer> arr){
+        boolean dampen=false;
+        for(int i=0; i<arr.size(); i++){
+            int tmp=arr.remove(i);
+            dampen=checkReport(arr);
+            if(dampen){
+                break;
+            }
+            arr.add(i, tmp);
+        }
+        return dampen;
+    }
+
     public static void main(String[] args) throws Exception{
-        BufferedReader br = new BufferedReader(new FileReader("D:\\adventofcode2024\\adventofcode2024\\adventofCode\\src\\day2\\part1\\input.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("D:\\adventofcode2024\\adventofcode2024\\adventofCode\\src\\day2\\part2\\input.txt"));
         String line=br.readLine();
         List<List<Integer>> arr=new ArrayList<>();
         while (line!=null){
@@ -43,6 +56,9 @@ public class Part1Solu {
         int res=0;
         for(int i=0; i<arr.size(); i++){
             boolean val=checkReport(arr.get(i));
+            if(!val){
+                val=dampen(arr.get(i));
+            }
             if(val){
                 res++;
             }
