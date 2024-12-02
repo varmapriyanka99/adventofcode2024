@@ -49,5 +49,7 @@ public class Part1Solu {
         }
 
         System.out.println(res);
+
+        System.out.println("Success!!\nGold start achieved!\n");
     }
 }

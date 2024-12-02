@@ -37,5 +37,7 @@ public class Part2Solu {
         }
 
         System.out.println(sum);
+
+        System.out.println("Success!!\nGold start achieved!\n");
     }
 }

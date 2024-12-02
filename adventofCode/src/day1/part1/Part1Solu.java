@@ -25,5 +25,7 @@ public class Part1Solu {
             sum+=Math.abs(arr1.get(i)-arr2.get(i));
         }
         System.out.println(sum);
+
+        System.out.println("Success!!\nGold start achieved!\n");
     }
 }
